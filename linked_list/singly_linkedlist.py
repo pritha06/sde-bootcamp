@@ -25,6 +25,7 @@ class LinkedList:
             currentNode=currentNode.next #set currentnode as next node
         return length
     
+   
     def insert_at_beginning(self,newNode):
         #newnode will have data as Ms., and next as None
         #find a temp node which pts to current head, set the current head to new node
@@ -118,22 +119,52 @@ class LinkedList:
             print(currentNode.data)
             currentNode=currentNode.next
 
-first=Node("Pritha")
+    def reverse_iterative(self):
+        
+        prev = None 
+        cur = self.head
+        while cur:
+            nxt = cur.next
+            cur.next = prev
+            prev = cur 
+            cur = nxt 
+        self.head = prev
+    
+    def reverse_recursive(self):
+
+        def _reverse_recursive(cur, prev):
+            if not cur:
+                return prev
+
+            nxt = cur.next
+            cur.next = prev
+            prev = cur 
+            cur = nxt 
+            return _reverse_recursive(cur, prev)
+
+        self.head = _reverse_recursive(cur=self.head, prev=None)
+
+
+first=Node("1")
 ll=LinkedList()
 # ll.print_list()
 ll.insert_at_end(first)
 # ll.print_list()
-second=Node("Shrivastava")
+second=Node("2")
 ll.insert_at_end(second)
 # ll.print_list()
-third=Node("Ms.")
-ll.insert_at_beginning(third)
+third=Node("3")
+ll.insert_at_end(third)
 # ll.delete_at_end()
-ll.delete_between_nodes(0)
+# ll.delete_between_nodes(0)
 # fourth=Node("10")
 # ll.insert_at_position(fourth,0)
 # fifth=Node("20")
 # ll.insert_at_position(fifth,1)
 # sixth=Node("15")
 # ll.insert_at_position(sixth,1)
+print("List before reversal")
+ll.print_list()
+ll.reverse_recursive()
+print("List after reversal")
 ll.print_list()
