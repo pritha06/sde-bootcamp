@@ -116,7 +116,7 @@ class LinkedList:
         while True:
             if currentNode is None:
                 break
-            print(currentNode.data)
+            print(currentNode.data,"-->",end=" ")
             currentNode=currentNode.next
 
     def reverse_iterative(self):
@@ -163,8 +163,8 @@ ll.insert_at_end(third)
 # ll.insert_at_position(fifth,1)
 # sixth=Node("15")
 # ll.insert_at_position(sixth,1)
-print("List before reversal")
-ll.print_list()
-ll.reverse_recursive()
-print("List after reversal")
-ll.print_list()
+# print("List before reversal")
+# ll.print_list()
+# ll.reverse_recursive()
+# print("List after reversal")
+# ll.print_list()
